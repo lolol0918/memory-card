@@ -9,8 +9,27 @@
     --gb-red: #c03030;
 }
 
-html {
-    background-color: #0d0d14;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    /* or whatever color you want behind the App */
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
 }
 
 .App {
