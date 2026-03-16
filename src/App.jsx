@@ -9,9 +9,19 @@ function App() {
 
     return (
         <div className="App">
-            <ScoreBoard score={score} bestScore={bestScore} />
-            <button onClick={resetGame}>Reset Game</button>
-            <GameBoard cards={cards} handleClick={handleClick} />
+            <div className="screen-label">GAME BOY™</div>
+            <div className="screen-bezel">
+                <div className="screen">
+                    <ScoreBoard score={score} bestScore={bestScore} />
+                    <GameBoard cards={cards} handleClick={handleClick} />
+                </div>
+            </div>
+            <button onClick={resetGame}>↺ Reset Game</button>
+            <div className="speaker">
+                <div className="speaker-hole"></div>
+                <div className="speaker-hole"></div>
+                <div className="speaker-hole"></div>
+            </div>
         </div>
     );
 }

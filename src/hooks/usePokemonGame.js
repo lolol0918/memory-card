@@ -21,15 +21,16 @@ export default function usePokemonGame() {
 
     useEffect(() => {
         setBestScore(prevBest => Math.max(prevBest, score));
+
+        if (score >= 10) {
+            resetGame();
+        }
     }, [score]);
 
     function handleClick(card) {
         // duplicate click → reset game
         if (clickedCards.includes(card.id)) {
-            // clear clicked cards first
-            setClickedCards([]);
-            setScore(0);
-            setGameReset(prev => !prev); // triggers new cards fetch
+            resetGame();
             return; // stop further execution
         }
 
@@ -39,5 +40,11 @@ export default function usePokemonGame() {
         setCards(shuffleCards(cards));
         console.log(clickedCards);
     }
-    return { cards, handleClick, score, bestScore, gameReset, setGameReset };
+
+    function resetGame() {
+        setScore(0);            // reset current score
+        setClickedCards([]);    // clear clicked cards
+        setGameReset(prev => !prev); // triggers useEffect to fetch new cards
+    }
+    return { cards, handleClick, score, bestScore, resetGame };
 }
