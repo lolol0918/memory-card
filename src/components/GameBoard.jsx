@@ -5,8 +5,8 @@ function GameBoard({ cards, handleClick }) {
         <div className="board">
             {cards.map((card) => (
                 <Card
-                    key={card.id}
-                    card={card}
+                    key={card.id}          // unique key
+                    card={card}            // pass the actual card object
                     handleClick={handleClick}
                 />
             ))}
